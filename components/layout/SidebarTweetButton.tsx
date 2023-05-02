@@ -57,7 +57,7 @@ const SidebarTweetButton = () => {
             text-white 
             text-[20px]
         ">
-          Tweetear
+          Twittear
         </p>
       </div>
     </div>
