@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
 import { formatDistanceToNowStrict } from 'date-fns';
+import es from 'date-fns/locale/es';
 
 import useLoginModal from '@/hooks/useLoginModal';
 import useCurrentUser from '@/hooks/useCurrentUser';
@@ -46,7 +47,7 @@ const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
       return null;
     }
 
-    return formatDistanceToNowStrict(new Date(data.createdAt));
+    return formatDistanceToNowStrict(new Date(data.createdAt), { locale: es });
   }, [data.createdAt])
 
   return (

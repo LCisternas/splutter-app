@@ -42,7 +42,7 @@ const RegisterModal = () => {
 
       setIsLoading(false)
 
-      toast.success('Account created.');
+      toast.success('Cuentra creada');
 
       signIn('credentials', {
         email,
@@ -51,7 +51,7 @@ const RegisterModal = () => {
 
       registerModal.onClose();
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error('Algo salio mal');
     } finally {
       setIsLoading(false);
     }
@@ -61,25 +61,25 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4">
       <Input
         disabled={isLoading}
-        placeholder="Email" 
+        placeholder="Correo electronico" 
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
       />
       <Input 
         disabled={isLoading}
-        placeholder="Name" 
+        placeholder="Nombre" 
         value={name} 
         onChange={(e) => setName(e.target.value)} 
       />
       <Input 
         disabled={isLoading}
-        placeholder="Username" 
+        placeholder="Nombre de usuario" 
         value={username} 
         onChange={(e) => setUsername(e.target.value)}
       />
       <Input 
         disabled={isLoading}
-        placeholder="Password" 
+        placeholder="Contraseña" 
         type="password" 
         value={password} 
         onChange={(e) => setPassword(e.target.value)}
@@ -89,15 +89,15 @@ const RegisterModal = () => {
 
   const footerContent = (
     <div className="text-neutral-400 text-center mt-4">
-      <p>Already have an account?
+      <p>¿Ya tienes cuenta?
         <span 
           onClick={onToggle} 
           className="
-            text-white 
+            text-sky-500 
             cursor-pointer 
             hover:underline
           "
-          > Sign in</span>
+          > Inicia sesión</span>
       </p>
     </div>
   )
@@ -106,8 +106,8 @@ const RegisterModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Create an account"
-      actionLabel="Register"
+      title="Crea tu cuenta"
+      actionLabel="Registrate"
       onClose={registerModal.onClose}
       onSubmit={onSubmit}
       body={bodyContent}

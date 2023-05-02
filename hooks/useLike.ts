@@ -38,9 +38,9 @@ const useLike = ({ postId, userId }: { postId: string, userId?: string }) => {
       mutateFetchedPost();
       mutateFetchedPosts();
 
-      toast.success('Success');
+      toast.success('Hecho');
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error('Algo salio mal');
     }
   }, [currentUser, hasLiked, postId, mutateFetchedPosts, mutateFetchedPost, loginModal]);
 

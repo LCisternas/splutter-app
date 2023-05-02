@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 import { formatDistanceToNowStrict } from 'date-fns';
+import es from 'date-fns/locale/es';
 
 import Avatar from '../Avatar';
 
@@ -22,7 +23,7 @@ const CommentItem: React.FC<CommentItemProps> = ({ data = {} }) => {
       return null;
     }
 
-    return formatDistanceToNowStrict(new Date(data.createdAt));
+    return formatDistanceToNowStrict(new Date(data.createdAt), { locale: es });
   }, [data.createdAt])
 
   return (

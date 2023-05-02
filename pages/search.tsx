@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 const Search = () => {
   return ( 
     <>
-      <Header label="Search" />
+      <Header label="Buscar" />
     </>
    );
 }

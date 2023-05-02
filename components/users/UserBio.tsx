@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { BiCalendar } from "react-icons/bi";
 import { format } from "date-fns";
+import es from 'date-fns/locale/es';
 
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useUser from "@/hooks/useUser";
@@ -26,7 +27,7 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
       return null;
     }
 
-    return format(new Date(fetchedUser.createdAt), 'MMMM yyyy');
+    return format(new Date(fetchedUser.createdAt), 'MMMM yyyy', { locale: es });
   }, [fetchedUser?.createdAt])
 
 
@@ -34,11 +35,11 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
     <div className="border-b-[1px] border-neutral-800 pb-4">
       <div className="flex justify-end p-2">
         {currentUser?.id === userId ? (
-          <Button secondary label="Edit" onClick={editModal.onOpen} />
+          <Button secondary label="Editar perfil" onClick={editModal.onOpen} />
         ) : (
           <Button
             onClick={toggleFollow} 
-            label={isFollowing ? 'Unfollow' : 'Follow'}
+            label={isFollowing ? 'Dejar de seguir' : 'Seguir'}
             secondary={!isFollowing}
             outline={isFollowing}
           />
@@ -68,18 +69,18 @@ const UserBio: React.FC<UserBioProps> = ({ userId }) => {
           ">
             <BiCalendar size={24} />
             <p>
-              Joined {createdAt}
+              Se unio en {createdAt}
             </p>
           </div>
         </div>
         <div className="flex flex-row items-center mt-4 gap-6">
           <div className="flex flex-row items-center gap-1">
             <p className="text-white">{fetchedUser?.followingIds?.length}</p>
-            <p className="text-neutral-500">Following</p>
+            <p className="text-neutral-500">Siguiendo</p>
           </div>
           <div className="flex flex-row items-center gap-1">
             <p className="text-white">{fetchedUser?.followersCount || 0}</p>
-            <p className="text-neutral-500">Followers</p>
+            <p className="text-neutral-500">Seguidores</p>
           </div>
         </div>
       </div>
